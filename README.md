@@ -19,7 +19,7 @@ https://franckguihikonhi-sketch.github.io/FNE-SAGE/
 - historique des exports ;
 - génération Windows-1252 du fichier `IMPORT_SAGE.txt` ;
 - champ Collaborateur vide ;
-- construction automatique d'un installateur et d'un exécutable Windows portable.
+- construction automatique d'un exécutable Windows portable.
 
 ## Déploiement web
 
@@ -32,7 +32,7 @@ Le dépôt est servi par GitHub Pages depuis la branche `main`. Après une modif
 3. Cliquer sur **Run workflow**.
 4. À la fin du traitement, télécharger l'artefact **FNE-Sage-Windows**.
 
-L'artefact contient un installateur Windows et une version portable. L'application Windows utilise la même base Supabase et la même version web.
+L'artefact contient `FNE-Sage-1.0.0-x64.exe`, utilisable directement sans installation. L'application Windows utilise la même base Supabase et la même version web.
 
 ## Développement local Windows
 
