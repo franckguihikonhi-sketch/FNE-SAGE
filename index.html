@@ -19,7 +19,10 @@ async function pdfLines(file){
  return lines.filter(Boolean);
 }
 function valueAfterLabel(lines,labels){
- for(let i=0;i<lines.length;i++)for(const label of labels){const re=new RegExp('^.*?'+label+'\\s*[:#-]?\\s*(.*)</html>,'i'),m=lines[i].match(re);if(m){const tail=clean(m[1]);if(tail&&!new RegExp('^'+label+'</html>,'i').test(tail))return tail;if(lines[i+1])return clean(lines[i+1])}}
+ for(let i=0;i<lines.length;i++)for(const label of labels){
+  const re=new RegExp('^.*?'+label+'\\s*[:#-]?\\s*(.*)$','i'),m=lines[i].match(re);
+  if(m){const tail=clean(m[1]);if(tail&&!new RegExp('^'+label+'$','i').test(tail))return tail;if(lines[i+1])return clean(lines[i+1])}
+ }
  return'';
 }
 async function extract(file){
