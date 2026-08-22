@@ -1,0 +1,32 @@
+{
+  "name": "fne-sage",
+  "version": "1.0.0",
+  "description": "Importateur de factures FNE vers Sage 100",
+  "main": "electron-main.js",
+  "author": "FNE-SAGE",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:windows": "electron-builder --win nsis portable"
+  },
+  "devDependencies": {
+    "electron": "43.4.0",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "ci.fnesage.importer",
+    "productName": "FNE Sage",
+    "files": ["electron-main.js", "package.json"],
+    "win": {
+      "target": ["nsis", "portable"],
+      "artifactName": "FNE-Sage-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+}
+
