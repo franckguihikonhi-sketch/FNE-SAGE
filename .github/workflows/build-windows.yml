@@ -1,0 +1,31 @@
+name: Construire l'application Windows
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Installer les dépendances
+        run: npm install
+      - name: Générer les exécutables
+        run: npm run build:windows
+      - name: Publier les fichiers Windows
+        uses: actions/upload-artifact@v4
+        with:
+          name: FNE-Sage-Windows
+          path: |
+            dist/*.exe
+          if-no-files-found: error
+
