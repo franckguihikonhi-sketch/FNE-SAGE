@@ -3,6 +3,12 @@ name: Construire l'application Windows
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
+    paths:
+      - package.json
+      - electron-main.js
+      - .github/workflows/build-windows.yml
     tags:
       - 'v*'
 
